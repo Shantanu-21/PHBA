@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Shantanu.PhoneBookApplication.Model.Contact;
 import com.Shantanu.PhoneBookApplication.Service.ContactServiceIMPL;
 
-@Controller
+
+
+@RestController
 public class ContactController {
 
 	@Autowired
