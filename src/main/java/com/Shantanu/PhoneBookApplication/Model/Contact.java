@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
 @Entity
 @Table(name = "CONTACT_DTLS")
 public class Contact {
@@ -30,10 +34,12 @@ private String contactEmail;
 @Column(name = "ACTIVE_SW")
 private Character activeSW;
 
-@Column(name = "CREATED_DATE")
+@Column(name = "CREATED_DATE",updatable = false)
+@CreationTimestamp
 private LocalDate createDate;
 
-@Column(name = "UPDATE_DATE")
+@Column(name = "UPDATE_DATE",insertable = false)
+@UpdateTimestamp
 private LocalDate upadatDate;
 
 public Integer getContactId() {
