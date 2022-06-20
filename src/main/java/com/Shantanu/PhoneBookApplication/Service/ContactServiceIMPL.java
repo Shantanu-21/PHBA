@@ -1,5 +1,7 @@
 package com.Shantanu.PhoneBookApplication.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,14 @@ public class ContactServiceIMPL implements ContactServiceI {
 		} else {
 			return false;
 		}
+//------------------------------------------------------------------------------------------------
+		//Retrive all data
+//------------------------------------------------------------------------------------------------		
+	}
 
+	@Override
+	public List<Contact> getllrecords() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
