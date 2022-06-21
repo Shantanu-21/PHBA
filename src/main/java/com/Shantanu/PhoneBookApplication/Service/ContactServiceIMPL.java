@@ -24,10 +24,11 @@ public class ContactServiceIMPL implements ContactServiceI {
 		} else {
 			return false;
 		}
+	}
 //------------------------------------------------------------------------------------------------
 		//Retrive all data
 //------------------------------------------------------------------------------------------------		
-	}
+	
 
 	@Override
 	public List<Contact> getllrecords() {
