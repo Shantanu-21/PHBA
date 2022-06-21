@@ -11,4 +11,6 @@ public interface ContactServiceI {
 	List<Contact> getllrecords();
 
 	public Contact getcontactbyid(Integer contactId); 
+
+	public boolean Deletecontactbyid(Integer contactId); 
 }

@@ -53,5 +53,25 @@ public class ContactServiceIMPL implements ContactServiceI {
 		}
 		return null;
 	}
+	
+	
+	      // ------------------------------------------------------------------------------------------------
+		 // Delete by id
+		// ------------------------------------------------------------------------------------------------
 
+	@Override
+	public boolean Deletecontactbyid(Integer contactId) {
+		
+		Optional<Contact> findById = contactRepository.findById(contactId);
+		
+		if(findById.isPresent()) 
+		{
+			contactRepository.deleteById(contactId);
+			return true;
+		}else
+		{
+		return false;
+
+		}
+	}
 }
