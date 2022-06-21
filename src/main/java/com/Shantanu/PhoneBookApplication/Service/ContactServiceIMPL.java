@@ -1,6 +1,7 @@
 package com.Shantanu.PhoneBookApplication.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -26,15 +27,31 @@ public class ContactServiceIMPL implements ContactServiceI {
 		}
 	}
 //------------------------------------------------------------------------------------------------
-		//Retrive all data
+	// Retrive all data
 //------------------------------------------------------------------------------------------------		
-	
 
 	@Override
 	public List<Contact> getllrecords() {
 
 		List<Contact> findAll = contactRepository.findAll();
-		
+
 		return findAll;
 	}
+
+	// ------------------------------------------------------------------------------------------------
+	// Find by id
+	// ------------------------------------------------------------------------------------------------
+
+	@Override
+	public Contact getcontactbyid(Integer contactId) {
+
+		Optional<Contact> findById = contactRepository.findById(contactId);
+
+		if (findById.isPresent()) {
+			Contact contact = findById.get();
+			return contact;
+		}
+		return null;
+	}
+
 }

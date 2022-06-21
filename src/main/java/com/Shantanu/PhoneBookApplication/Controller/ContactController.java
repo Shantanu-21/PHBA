@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,8 +56,24 @@ public class ContactController {
 			
 			String msg="deta not found";
 			return new ResponseEntity(msg,HttpStatus.BAD_REQUEST);		
-		}
-		
+		}	
 	}
 
+	 //------------------------------------------------------------------------------------------------
+	//Find by id
+   //------------------------------------------------------------------------------------------------		
+
+	@GetMapping(value = "/getcontactbyid/{contactId}")
+	public ResponseEntity<Contact> getcontactbyid(@PathVariable Integer contactId)
+	{
+		Contact getcontactbyid = contactServiceIMPL.getcontactbyid(contactId);
+		if(getcontactbyid != null) 
+		{
+		return new ResponseEntity<Contact>(getcontactbyid,HttpStatus.OK);	
+		}else
+		{
+			String msg= "data not found";
+		return new ResponseEntity (msg,HttpStatus.BAD_REQUEST);
+		}
+	}
 }
