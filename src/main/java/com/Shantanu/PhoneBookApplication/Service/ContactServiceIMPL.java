@@ -53,25 +53,37 @@ public class ContactServiceIMPL implements ContactServiceI {
 		}
 		return null;
 	}
-	
-	
-	      // ------------------------------------------------------------------------------------------------
-		 // Delete by id
-		// ------------------------------------------------------------------------------------------------
+
+	// ------------------------------------------------------------------------------------------------
+	// Delete by id
+	// ------------------------------------------------------------------------------------------------
 
 	@Override
 	public boolean Deletecontactbyid(Integer contactId) {
-		
+
 		Optional<Contact> findById = contactRepository.findById(contactId);
-		
-		if(findById.isPresent()) 
-		{
+
+		if (findById.isPresent()) {
 			contactRepository.deleteById(contactId);
 			return true;
-		}else
-		{
-		return false;
+		} else {
+			return false;
 
 		}
 	}
+
+	// ------------------------------------------------------------------------------------------------
+	// Update
+	// ------------------------------------------------------------------------------------------------
+	@Override
+	public boolean Updatecontact(Contact contact) {
+		Contact save = contactRepository.save(contact);
+		if (save != null) {
+			return true;
+		} else {
+			return false;
+
+		}
+	}
+
 }

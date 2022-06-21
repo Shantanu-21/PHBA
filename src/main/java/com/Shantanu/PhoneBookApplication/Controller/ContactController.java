@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -84,5 +85,21 @@ public class ContactController {
 
 		}
 	}
+	// ------------------------------------------------------------------------------------------------
+	// update
+	// ------------------------------------------------------------------------------------------------
 
+	@PutMapping(value ="/Updatecontact" )
+	public ResponseEntity<String> Updatecontact( Contact contact) 
+{
+		boolean updatecontact = contactServiceIMPL.Updatecontact(contact);
+		if(updatecontact == true) {
+			String msg="ok";
+	return new ResponseEntity<String>(msg,HttpStatus.CREATED) ;
+	}else {
+		String msg="NOT ok";
+		return new ResponseEntity<String>(msg,HttpStatus.BAD_REQUEST) ;
+	}
+	
+}
 }
